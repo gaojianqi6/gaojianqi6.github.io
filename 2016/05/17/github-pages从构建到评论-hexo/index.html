@@ -92,11 +92,13 @@ GitHub Pages是什么？GitHub Pages 本用于介绍托管在 GitHub 的项目�
 <meta property="og:site_name" content="浮生如斯的博客">
 <meta property="og:description" content="这是我第一次搭建博客，本来之前是准备自己买服务器，自己写代码来搞一套，后来无意中发现有人提到github的博客，然后搜索了一下发现是github pages,就开始跟着教程一步步搭建博客，之间走过了很多的坑，因为现在网上的很多教程都是很久以前的资料，而且到处搬来搬去，在这里总结一下。
 GitHub Pages是什么？GitHub Pages 本用于介绍托管在 GitHub 的项目， 不过，由于他的">
-<meta property="og:updated_time" content="2016-05-17T09:33:10.000Z">
+<meta property="og:image" content="http://o7bfyflfi.bkt.clouddn.com/ssh.jpg">
+<meta property="og:updated_time" content="2016-05-17T10:04:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github Pages从构建到评论(HEXO)">
 <meta name="twitter:description" content="这是我第一次搭建博客，本来之前是准备自己买服务器，自己写代码来搞一套，后来无意中发现有人提到github的博客，然后搜索了一下发现是github pages,就开始跟着教程一步步搭建博客，之间走过了很多的坑，因为现在网上的很多教程都是很久以前的资料，而且到处搬来搬去，在这里总结一下。
 GitHub Pages是什么？GitHub Pages 本用于介绍托管在 GitHub 的项目， 不过，由于他的">
+<meta name="twitter:image" content="http://o7bfyflfi.bkt.clouddn.com/ssh.jpg">
 
 
 
@@ -363,7 +365,7 @@ Host oschina.net
     HostName git.oschina.net
     User git
     IdentityFile ~/.ssh/id_rsa
-</code></pre><p>修改完之后可以测试一下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com   <span class="comment">#github.com 对应Host</span></span><br></pre></td></tr></table></figure></p>
+</code></pre><p>配置完之后：<br><img src="http://o7bfyflfi.bkt.clouddn.com/ssh.jpg" alt="配置SSH完成"><br>修改完之后可以测试一下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com   <span class="comment">#github.com 对应Host</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>到github新建一个项目，项目名为：<em>你的用户名</em>.github.io必须为这个名字</p>
 <p>配置文件<em>_config.yml</em></p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> git</span><br><span class="line"><span class="attr">  repository:</span> git@github.com:你的帐号/你的帐号.github.com.git</span><br><span class="line">  例如我的：repository: git@github.com:gaojianqi6/gaojianqi6.github.io.git</span><br><span class="line"><span class="attr">  branch:</span> master</span><br></pre></td></tr></table></figure>

@@ -366,7 +366,7 @@ Host oschina.net
     HostName git.oschina.net
     User git
     IdentityFile ~/.ssh/id_rsa
-</code></pre><p>修改完之后可以测试一下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com   <span class="comment">#github.com 对应Host</span></span><br></pre></td></tr></table></figure></p>
+</code></pre><p>配置完之后：<br><img src="http://o7bfyflfi.bkt.clouddn.com/ssh.jpg" alt="配置SSH完成"><br>修改完之后可以测试一下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com   <span class="comment">#github.com 对应Host</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>到github新建一个项目，项目名为：<em>你的用户名</em>.github.io必须为这个名字</p>
 <p>配置文件<em>_config.yml</em></p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> git</span><br><span class="line"><span class="attr">  repository:</span> git@github.com:你的帐号/你的帐号.github.com.git</span><br><span class="line">  例如我的：repository: git@github.com:gaojianqi6/gaojianqi6.github.io.git</span><br><span class="line"><span class="attr">  branch:</span> master</span><br></pre></td></tr></table></figure>
