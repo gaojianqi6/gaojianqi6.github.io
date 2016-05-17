@@ -312,19 +312,60 @@
 <h3 id="添加-SSH-Key-到-GitHub"><a href="#添加-SSH-Key-到-GitHub" class="headerlink" title="添加 SSH Key 到 GitHub"></a>添加 SSH Key 到 GitHub</h3><p>在本机设置SSH Key之后，需要添加到GitHub上，以完成SSH链接的设置。</p>
 <p>1、打开本地~\id_rsa.pub文件。此文件里面内容为刚才生成人密钥。如果看不到这个文件，你需要设置显示隐藏文件。准确的复制这个文件的内容，才能保证设置的成功。<br>2、登陆github系统。点击右上角的 Account Settings—&gt;SSH Public keys —&gt; add another public keys<br>3、把你本地生成的密钥复制到里面（key文本框中）， 点击 add key 就ok了</p>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>可以输入下面的命令，看看设置是否成功，git@github.com的部分不要修改：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<h3 id="多个SSH-Key"><a href="#多个SSH-Key" class="headerlink" title="多个SSH Key"></a>多个SSH Key</h3><p>1.生成指定名字的密钥<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"邮箱地址"</span> <span class="_">-f</span> ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure></p>
+<pre><code>会生成id_rsa.pub和id_rsa_github两个文件
+</code></pre><p>2.密钥复制到托管平台上<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  vim ~/.ssh/id_rsa_github.pub</span><br></pre></td></tr></table></figure></p>
+<p>3.修改config文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/config <span class="comment">#修改config文件，如果没有创建 config</span></span><br></pre></td></tr></table></figure></p>
+<pre><code>#Github  (github 配置)
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_github
+
+#oschina.net (开源中国 配置)
+Host oschina.net
+    HostName git.oschina.net
+    User git
+    IdentityFile ~/.ssh/id_rsa
+</code></pre><p>修改完之后可以测试一下。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com   <span class="comment">#github.com 对应Host</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>到github新建一个项目，项目名为：<em>你的用户名</em>.github.io必须为这个名字</p>
 <p>配置文件<em>_config.yml</em></p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> git</span><br><span class="line"><span class="attr">  repository:</span> git@github.com:你的帐号/你的帐号.github.com.git</span><br><span class="line">  例如我的：repository: git@github.com:gaojianqi6/gaojianqi6.github.io.git</span><br><span class="line"><span class="attr">  branch:</span> master</span><br></pre></td></tr></table></figure>
 <p>之前有的教程deploy的type是github,这里需要改成git，然后运行下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
 <p>然后执行命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure></p>
-<p>在source文件夹里面添加CNAME文件，里面填写自己的独立域名。</p>
+<p>命令缩写<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="comment">#写文章</span></span><br><span class="line">hexo g <span class="comment">#生成</span></span><br><span class="line">hexo d <span class="comment">#部署 # 可与hexo g合并为 hexo d -g</span></span><br></pre></td></tr></table></figure></p>
+<p>在source文件夹里面添加CNAME文件，里面填写自己的独立域名。<br>有的使用Hexo和Github部署好之后但是一直404，有可能就是没有在根目录下面添加CNAME文件。</p>
 <p>PS:以后的404页面，favicon.ico也是直接在source下面添加</p>
 <h2 id="将独立域名与-GitHub-Pages-的空间绑定"><a href="#将独立域名与-GitHub-Pages-的空间绑定" class="headerlink" title="将独立域名与 GitHub Pages 的空间绑定"></a>将独立域名与 GitHub Pages 的空间绑定</h2><p>选择ping命令之后出现的地址，在您自己的域名管理里面更改一下域名解析，这个可能需要几分钟之后才能生效。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ping username.github.io</span><br></pre></td></tr></table></figure></p>
 <h2 id="选择Hexo主题"><a href="#选择Hexo主题" class="headerlink" title="选择Hexo主题"></a>选择Hexo主题</h2><p>Hexo有很多可以选择的主题，可以在下面的链接中选择自己喜欢的主题：<br><a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">有哪些好看的 Hexo 主题？</a><br><a href="https://hexo.io/themes/" title="Hexo官网主题站" target="_blank" rel="external">Hexo themes</a></p>
-<p>我选择了Next主题，在这里查看怎么安装Next -&gt; <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">安装Next</a></p>
-<h2 id="404页面"><a href="#404页面" class="headerlink" title="404页面"></a>404页面</h2><p>有很多用作公益的404接入地址，我选择了腾讯的。404页面，每个人可以做的更多一点。<br>    <a href="http://www.qq.com/404" target="_blank" rel="external">腾讯公益404</a><br>    <a href="http://yibo.iyiyun.com/Index/web404" target="_blank" rel="external">404公益_益云(公益互联网)社会创新中心</a><br>    <a href="http://404page.missingkids.org.tw/" target="_blank" rel="external">失蹤兒童少年資料管理中心404</a><br>在source目录下添加新建404.html，然后复制内容：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>宝贝，公益404带你们回家<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.qq.com/404/search_children.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> <span class="attr">homePageUrl</span>=<span class="string">"http://yoursitename.com"</span> <span class="attr">homePageName</span>=<span class="string">"回到我的主页"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>我选择了<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">Next</a>主题，在这里查看怎么安装Next -&gt; <a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">安装Next</a></p>
+<h2 id="目录介绍"><a href="#目录介绍" class="headerlink" title="目录介绍"></a>目录介绍</h2><p>默认目录结构：</p>
+<pre><code>.
+├── .deploy
+├── public
+├── scaffolds
+├── scripts
+├── source
+|   ├── _drafts
+|   └── _posts
+├── themes
+├── _config.yml
+└── package.json
+
+.deploy：执行hexo deploy命令部署到GitHub上的内容目录
+public：执行hexo generate命令，输出的静态网页内容目录
+scaffolds：layout模板文件目录，其中的md文件可以添加编辑
+scripts：扩展脚本目录，这里可以自定义一些javascript脚本
+source：文章源码目录，该目录下的markdown和html文件均会被hexo处理。该页面对应repo的根目录，404文件、favicon.ico文件，CNAME文件等都应该放这里，该目录下可新建页面目录。
+_drafts：草稿文章
+_posts：发布文章
+themes：主题文件目录
+_config.yml：全局配置文件，大多数的设置都在这里
+package.json：应用程序数据，指明hexo的版本等信息，类似于一般软件中的 关于 按钮
+</code></pre><h2 id="404页面"><a href="#404页面" class="headerlink" title="404页面"></a>404页面</h2><p>有很多用作公益的404接入地址，我选择了腾讯的。404页面，每个人可以做的更多一点。<br>    <a href="http://www.qq.com/404" target="_blank" rel="external">腾讯公益404</a><br>    <a href="http://yibo.iyiyun.com/Index/web404" target="_blank" rel="external">404公益_益云(公益互联网)社会创新中心</a><br>    <a href="http://404page.missingkids.org.tw/" target="_blank" rel="external">失蹤兒童少年資料管理中心404</a><br>在source目录下添加新建404.html，然后复制内容：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>宝贝，公益404带你们回家<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.qq.com/404/search_children.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> <span class="attr">homePageUrl</span>=<span class="string">"http://yoursitename.com"</span> <span class="attr">homePageName</span>=<span class="string">"回到我的主页"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="评论插件"><a href="#评论插件" class="headerlink" title="评论插件"></a>评论插件</h2><p>流行的评论插件有: <a href="http://duoshuo.com/" target="_blank" rel="external">多说</a>、<a href="http://www.uyan.cc/" target="_blank" rel="external">友言</a>、<a href="https://disqus.com/" target="_blank" rel="external">Disqus</a>等<br>安装多说主题又是Next的，可以在这里<a href="http://theme-next.iissnan.com/getting-started.html#comment-system-duoshuo" target="_blank" rel="external">查看</a>。</p>
+<h2 id="图床"><a href="#图床" class="headerlink" title="图床"></a>图床</h2><p>考虑到博客的速度，同时也为了便于博客的迁移，图床是必须的。可以看一下七牛，访问速度极快，支持日志、防盗链和水印。<br>您还可以使用如下图床服务 <a href="http://www.farbox.com/" target="_blank" rel="external">FarBox</a> ， <a href="http://www.dropbox.com/" target="_blank" rel="external">Dropbox</a> ， <a href="http://www.upyun.com/" target="_blank" rel="external">又拍云</a> 。</p>
 
           
         
