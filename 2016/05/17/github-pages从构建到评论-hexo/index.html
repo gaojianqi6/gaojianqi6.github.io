@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="github pages, ssh key, hexo, hexo-next," />
 
 
 
@@ -84,15 +84,19 @@
 
 
 
-<meta name="description" content="博客, jerome, github, react.js">
-<meta property="og:type" content="website">
-<meta property="og:title" content="浮生如斯的博客">
-<meta property="og:url" content="http://gudianjita.cn/index.html">
+<meta name="description" content="这是我第一次搭建博客，本来之前是准备自己买服务器，自己写代码来搞一套，后来无意中发现有人提到github的博客，然后搜索了一下发现是github pages,就开始跟着教程一步步搭建博客，之间走过了很多的坑，因为现在网上的很多教程都是很久以前的资料，而且到处搬来搬去，在这里总结一下。
+GitHub Pages是什么？GitHub Pages 本用于介绍托管在 GitHub 的项目， 不过，由于他的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github Pages从构建到评论(HEXO)">
+<meta property="og:url" content="http://gudianjita.cn/2016/05/17/github-pages从构建到评论-hexo/index.html">
 <meta property="og:site_name" content="浮生如斯的博客">
-<meta property="og:description" content="博客, jerome, github, react.js">
+<meta property="og:description" content="这是我第一次搭建博客，本来之前是准备自己买服务器，自己写代码来搞一套，后来无意中发现有人提到github的博客，然后搜索了一下发现是github pages,就开始跟着教程一步步搭建博客，之间走过了很多的坑，因为现在网上的很多教程都是很久以前的资料，而且到处搬来搬去，在这里总结一下。
+GitHub Pages是什么？GitHub Pages 本用于介绍托管在 GitHub 的项目， 不过，由于他的">
+<meta property="og:updated_time" content="2016-05-17T08:48:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浮生如斯的博客">
-<meta name="twitter:description" content="博客, jerome, github, react.js">
+<meta name="twitter:title" content="Github Pages从构建到评论(HEXO)">
+<meta name="twitter:description" content="这是我第一次搭建博客，本来之前是准备自己买服务器，自己写代码来搞一套，后来无意中发现有人提到github的博客，然后搜索了一下发现是github pages,就开始跟着教程一步步搭建博客，之间走过了很多的坑，因为现在网上的很多教程都是很久以前的资料，而且到处搬来搬去，在这里总结一下。
+GitHub Pages是什么？GitHub Pages 本用于介绍托管在 GitHub 的项目， 不过，由于他的">
 
 
 
@@ -110,7 +114,7 @@
   };
 </script>
 
-  <title> 浮生如斯的博客 </title>
+  <title> Github Pages从构建到评论(HEXO) | 浮生如斯的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -141,9 +145,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -220,9 +222,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -242,10 +244,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/05/17/github-pages从构建到评论-hexo/" itemprop="url">
-                  Github Pages从构建到评论(HEXO)
-                </a>
+                Github Pages从构建到评论(HEXO)
               
             
           </h1>
@@ -292,9 +291,7 @@
       
 
       
-        
-          
-            <p>这是我第一次搭建博客，本来之前是准备自己买服务器，自己写代码来搞一套，后来无意中发现有人提到github的博客，然后搜索了一下发现是github pages,就开始跟着教程一步步搭建博客，之间走过了很多的坑，因为现在网上的很多教程都是很久以前的资料，而且到处搬来搬去，在这里总结一下。</p>
+        <p>这是我第一次搭建博客，本来之前是准备自己买服务器，自己写代码来搞一套，后来无意中发现有人提到github的博客，然后搜索了一下发现是github pages,就开始跟着教程一步步搭建博客，之间走过了很多的坑，因为现在网上的很多教程都是很久以前的资料，而且到处搬来搬去，在这里总结一下。</p>
 <h2 id="GitHub-Pages是什么？"><a href="#GitHub-Pages是什么？" class="headerlink" title="GitHub Pages是什么？"></a>GitHub Pages是什么？</h2><p>GitHub Pages 本用于介绍托管在 GitHub 的项目， 不过，由于他的空间免费稳定，用来做搭建一个博客再好不过了。</p>
 <h2 id="使用-GitHub-Pages-建立博客"><a href="#使用-GitHub-Pages-建立博客" class="headerlink" title="使用 GitHub Pages 建立博客"></a>使用 GitHub Pages 建立博客</h2><h3 id="注册GitHub"><a href="#注册GitHub" class="headerlink" title="注册GitHub"></a>注册GitHub</h3><p>访问：<a href="http://www.github.com/" target="_blank" rel="external">http://www.github.com/</a><br>注册你的username和邮箱，邮箱十分重要，GitHub上很多通知都是通过邮箱的。</p>
 <h3 id="建立博客项目"><a href="#建立博客项目" class="headerlink" title="建立博客项目"></a>建立博客项目</h3><p>与 GitHub 建立好链接之后，就可以方便的使用它提供的Pages服务，GitHub Pages分两种，一种是你的GitHub用户名建立的username.github.io这样的用户&amp;组织页（站），另一种是依附项目的pages。</p>
@@ -326,145 +323,58 @@
 <h2 id="404页面"><a href="#404页面" class="headerlink" title="404页面"></a>404页面</h2><p>有很多用作公益的404接入地址，我选择了腾讯的。404页面，每个人可以做的更多一点。<br>    <a href="http://www.qq.com/404" target="_blank" rel="external">腾讯公益404</a><br>    <a href="http://yibo.iyiyun.com/Index/web404" target="_blank" rel="external">404公益_益云(公益互联网)社会创新中心</a><br>    <a href="http://404page.missingkids.org.tw/" target="_blank" rel="external">失蹤兒童少年資料管理中心404</a><br>在source目录下添加新建404.html，然后复制内容：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>宝贝，公益404带你们回家<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"http://www.qq.com/404/search_children.js"</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> <span class="attr">homePageUrl</span>=<span class="string">"http://yoursitename.com"</span> <span class="attr">homePageName</span>=<span class="string">"回到我的主页"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="评论插件"><a href="#评论插件" class="headerlink" title="评论插件"></a>评论插件</h2><p>流行的评论插件有: <a href="http://duoshuo.com/" target="_blank" rel="external">多说</a>、<a href="http://www.uyan.cc/" target="_blank" rel="external">友言</a>、<a href="https://disqus.com/" target="_blank" rel="external">Disqus</a>等<br>安装多说主题又是Next的，可以在这里<a href="http://theme-next.iissnan.com/getting-started.html#comment-system-duoshuo" target="_blank" rel="external">查看</a>。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/16/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-16T22:53:06+08:00" content="2016-05-16">
-              2016-05-16
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/16/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/16/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/github-pages-ssh-key-hexo-hexo-next/" rel="tag">#github pages, ssh key, hexo, hexo-next</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/16/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -472,6 +382,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/17/github-pages从构建到评论-hexo/"
+           data-title="Github Pages从构建到评论(HEXO)" data-url="http://gudianjita.cn/2016/05/17/github-pages从构建到评论-hexo/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -491,8 +409,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars3.githubusercontent.com/u/1460571?v=3&s=460"
@@ -535,6 +462,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub-Pages是什么？"><span class="nav-number">1.</span> <span class="nav-text">GitHub Pages是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-GitHub-Pages-建立博客"><span class="nav-number">2.</span> <span class="nav-text">使用 GitHub Pages 建立博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册GitHub"><span class="nav-number">2.1.</span> <span class="nav-text">注册GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立博客项目"><span class="nav-number">2.2.</span> <span class="nav-text">建立博客项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始Hexo"><span class="nav-number">3.</span> <span class="nav-text">开始Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-SSH-keys"><span class="nav-number">4.</span> <span class="nav-text">配置 SSH keys</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检查-SSH-keys的设置"><span class="nav-number">4.1.</span> <span class="nav-text">检查 SSH keys的设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成新的SSH-Key："><span class="nav-number">4.2.</span> <span class="nav-text">生成新的SSH Key：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加-SSH-Key-到-GitHub"><span class="nav-number">4.3.</span> <span class="nav-text">添加 SSH Key 到 GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">4.4.</span> <span class="nav-text">测试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到github"><span class="nav-number">5.</span> <span class="nav-text">部署到github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将独立域名与-GitHub-Pages-的空间绑定"><span class="nav-number">6.</span> <span class="nav-text">将独立域名与 GitHub Pages 的空间绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择Hexo主题"><span class="nav-number">7.</span> <span class="nav-text">选择Hexo主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#404页面"><span class="nav-number">8.</span> <span class="nav-text">404页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论插件"><span class="nav-number">9.</span> <span class="nav-text">评论插件</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -638,6 +576,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
