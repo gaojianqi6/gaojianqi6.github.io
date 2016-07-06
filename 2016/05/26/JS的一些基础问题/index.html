@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="1、’测试cd‘怎么返回一个JS的div对象。2、给一个父元素，怎么遍历下面的所有子元素。3、给一个冒泡排序。4、retina 1px边框线5、点击延迟300ms6、事件穿透 pointer-event7、viewport作用。8\ BMS">
+<meta name="description" content="1、如果给定一个字符串，怎么返回成一个JS的Dom对象。 比如下面的这个字符串：1&amp;lt;div&amp;gt;测试&amp;lt;span&amp;gt;cd&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+这个要用到浏览器的innerHTML来实现了，首先使用createElement来创建一个div元素，然后使用innerHTML把字符串设置为它的子元素，然后再返回他的子元素就可以了。实现例子：
+1234567f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS的一些基础问题">
 <meta property="og:url" content="http://gudianjita.cn/2016/05/26/JS的一些基础问题/index.html">
 <meta property="og:site_name" content="浮生如斯的博客">
-<meta property="og:description" content="1、’测试cd‘怎么返回一个JS的div对象。2、给一个父元素，怎么遍历下面的所有子元素。3、给一个冒泡排序。4、retina 1px边框线5、点击延迟300ms6、事件穿透 pointer-event7、viewport作用。8\ BMS">
-<meta property="og:updated_time" content="2016-07-01T04:10:59.000Z">
+<meta property="og:description" content="1、如果给定一个字符串，怎么返回成一个JS的Dom对象。 比如下面的这个字符串：1&amp;lt;div&amp;gt;测试&amp;lt;span&amp;gt;cd&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+这个要用到浏览器的innerHTML来实现了，首先使用createElement来创建一个div元素，然后使用innerHTML把字符串设置为它的子元素，然后再返回他的子元素就可以了。实现例子：
+1234567f">
+<meta property="og:updated_time" content="2016-07-06T08:47:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS的一些基础问题">
-<meta name="twitter:description" content="1、’测试cd‘怎么返回一个JS的div对象。2、给一个父元素，怎么遍历下面的所有子元素。3、给一个冒泡排序。4、retina 1px边框线5、点击延迟300ms6、事件穿透 pointer-event7、viewport作用。8\ BMS">
+<meta name="twitter:description" content="1、如果给定一个字符串，怎么返回成一个JS的Dom对象。 比如下面的这个字符串：1&amp;lt;div&amp;gt;测试&amp;lt;span&amp;gt;cd&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;
+这个要用到浏览器的innerHTML来实现了，首先使用createElement来创建一个div元素，然后使用innerHTML把字符串设置为它的子元素，然后再返回他的子元素就可以了。实现例子：
+1234567f">
 
 
 
@@ -327,7 +333,16 @@
       
 
       
-        <p>1、’<div>测试<span>cd</span></div>‘怎么返回一个JS的div对象。<br>2、给一个父元素，怎么遍历下面的所有子元素。<br>3、给一个冒泡排序。<br>4、retina 1px边框线<br>5、点击延迟300ms<br>6、事件穿透 pointer-event<br>7、viewport作用。<br>8\ BMS</p>
+        <h3 id="1、如果给定一个字符串，怎么返回成一个JS的Dom对象。-比如下面的这个字符串："><a href="#1、如果给定一个字符串，怎么返回成一个JS的Dom对象。-比如下面的这个字符串：" class="headerlink" title="1、如果给定一个字符串，怎么返回成一个JS的Dom对象。 比如下面的这个字符串："></a>1、如果给定一个字符串，怎么返回成一个JS的Dom对象。 比如下面的这个字符串：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;测试&lt;span&gt;cd&lt;<span class="regexp">/span&gt;&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+<p>这个要用到浏览器的innerHTML来实现了，首先使用createElement来创建一个div元素，然后使用innerHTML把字符串设置为它的子元素，然后再返回他的子元素就可以了。实现例子：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">parseDom</span>(<span class="params">str</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> objParent = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">	objParent.innerHTML = str;</span><br><span class="line">	<span class="keyword">return</span> objParent.childNodes;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">parseDom(<span class="string">"&lt;div&gt;测试&lt;span&gt;cd&lt;/span&gt;&lt;/div&gt;"</span>);</span><br></pre></td></tr></table></figure>
+<p>那这里面的childNodes返回的是一个数组，如果确定传入的是一个元素，则使用下标取第一个就行，parseDom(‘&lt;div&gt;&lt;/div&gt;’)[0]</p>
+<h3 id="2、给一个父元素，怎么遍历下面的所有子元素。"><a href="#2、给一个父元素，怎么遍历下面的所有子元素。" class="headerlink" title="2、给一个父元素，怎么遍历下面的所有子元素。"></a>2、给一个父元素，怎么遍历下面的所有子元素。</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"ID"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"1"</span>&gt;</span>内容1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"2_1"</span>&gt;</span>内容2.1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"2_1"</span>&gt;</span>内容2.1<span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"3"</span>&gt;</span>内容3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用childNodes获取元素的子节点，但是在FF和Chrome下面换行符也会当成一个元素储存在元素列表里，所以根据元素的nodeName来判断，如果是的话，则删除当前元素。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getChildNodes</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> nodes = obj.childNodes,</span><br><span class="line">		objNode,</span><br><span class="line">		i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(; i &lt; nodes.length; i++)&#123;</span><br><span class="line">		objNode = nodes[i];</span><br><span class="line">		<span class="comment">//当元素里面有节点类型是文本并且文本类型节点的节点值是空的。就把他删除。</span></span><br><span class="line">		<span class="comment">//nodeNames可以得到一个节点的节点类型，nodeValue表示得到这个节点里的值</span></span><br><span class="line">		<span class="comment">// /\s/是非空字符在JS里的正则表达式,如：</span></span><br><span class="line">		<span class="comment">// /\s/.test(" ") //true</span></span><br><span class="line">		<span class="comment">// /\s/.test("sdf") //false</span></span><br><span class="line">		<span class="keyword">if</span>(objNode.nodeName == <span class="string">"#text"</span> &amp;&amp; <span class="regexp">/\s/</span>.test(objNode.nodeValue))&#123;</span><br><span class="line">			obj.removeChild(objNode);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> obj.childNodes;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getChildNodes(<span class="built_in">document</span>.getElementById(<span class="string">"ID"</span>));</span><br></pre></td></tr></table></figure></p>
+<p>3.给一个冒泡排序。<br>4.retina 1px边框线<br>5.点击延迟300ms<br>6.事件穿透 pointer-event<br>7.viewport作用。</p>
+<ol>
+<li>BMS</li>
+</ol>
 
       
     </div>
@@ -482,7 +497,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、如果给定一个字符串，怎么返回成一个JS的Dom对象。-比如下面的这个字符串："><span class="nav-number">1.</span> <span class="nav-text">1、如果给定一个字符串，怎么返回成一个JS的Dom对象。 比如下面的这个字符串：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、给一个父元素，怎么遍历下面的所有子元素。"><span class="nav-number">2.</span> <span class="nav-text">2、给一个父元素，怎么遍历下面的所有子元素。</span></a></li></ol></div>
             
           </div>
         </section>
