@@ -339,11 +339,32 @@
 <p>那这里面的childNodes返回的是一个数组，如果确定传入的是一个元素，则使用下标取第一个就行，parseDom(‘&lt;div&gt;&lt;/div&gt;’)[0]</p>
 <h3 id="2、给一个父元素，怎么遍历下面的所有子元素。"><a href="#2、给一个父元素，怎么遍历下面的所有子元素。" class="headerlink" title="2、给一个父元素，怎么遍历下面的所有子元素。"></a>2、给一个父元素，怎么遍历下面的所有子元素。</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"ID"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"1"</span>&gt;</span>内容1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"2"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"2_1"</span>&gt;</span>内容2.1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"2_1"</span>&gt;</span>内容2.1<span class="tag">&lt;/<span class="name">div</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"3"</span>&gt;</span>内容3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>使用childNodes获取元素的子节点，但是在FF和Chrome下面换行符也会当成一个元素储存在元素列表里，所以根据元素的nodeName来判断，如果是的话，则删除当前元素。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getChildNodes</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> nodes = obj.childNodes,</span><br><span class="line">		objNode,</span><br><span class="line">		i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(; i &lt; nodes.length; i++)&#123;</span><br><span class="line">		objNode = nodes[i];</span><br><span class="line">		<span class="comment">//当元素里面有节点类型是文本并且文本类型节点的节点值是空的。就把他删除。</span></span><br><span class="line">		<span class="comment">//nodeNames可以得到一个节点的节点类型，nodeValue表示得到这个节点里的值</span></span><br><span class="line">		<span class="comment">// /\s/是非空字符在JS里的正则表达式,如：</span></span><br><span class="line">		<span class="comment">// /\s/.test(" ") //true</span></span><br><span class="line">		<span class="comment">// /\s/.test("sdf") //false</span></span><br><span class="line">		<span class="keyword">if</span>(objNode.nodeName == <span class="string">"#text"</span> &amp;&amp; <span class="regexp">/\s/</span>.test(objNode.nodeValue))&#123;</span><br><span class="line">			obj.removeChild(objNode);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> obj.childNodes;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getChildNodes(<span class="built_in">document</span>.getElementById(<span class="string">"ID"</span>));</span><br></pre></td></tr></table></figure></p>
-<h3 id="3、给一个冒泡排序。"><a href="#3、给一个冒泡排序。" class="headerlink" title="3、给一个冒泡排序。"></a>3、给一个冒泡排序。</h3><h3 id="4、retina屏幕如何实现真正1px的边框线"><a href="#4、retina屏幕如何实现真正1px的边框线" class="headerlink" title="4、retina屏幕如何实现真正1px的边框线"></a>4、retina屏幕如何实现真正1px的边框线</h3><p>解决办法:</p>
+<h3 id="3、给一个冒泡排序。"><a href="#3、给一个冒泡排序。" class="headerlink" title="3、给一个冒泡排序。"></a>3、给一个冒泡排序。</h3><p><a href="http://www.cnblogs.com/wangfupeng1988/archive/2011/12/26/2302216.html" target="_blank" rel="external">【轻松学排序算法】眼睛直观感受几种常用排序算法</a><br><a href="http://www.52codes.net/article/2331.html" target="_blank" rel="external">js实现数组冒泡排序、快速排序原理</a><br><a href="http://www.cnblogs.com/aaronjs/p/3539538.html" target="_blank" rel="external">Javascript算法系列之快速排序（Quicksort）</a></p>
+<h3 id="4、retina屏幕如何实现真正1px的边框线"><a href="#4、retina屏幕如何实现真正1px的边框线" class="headerlink" title="4、retina屏幕如何实现真正1px的边框线"></a>4、retina屏幕如何实现真正1px的边框线</h3><p>解决办法:<br>1、判断浏览器是否支持0.5PX的线，支持给html元素添加一个class<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hairlines</span> <span class="selector-tag">div</span> &#123;   <span class="attribute">border-width</span>: <span class="number">0.5px</span>; &#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">window</span>.devicePixelRatio &amp;&amp; devicePixelRatio &gt;= <span class="number">2</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> testElem = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</span><br><span class="line">  testElem.style.border = <span class="string">'.5px solid transparent'</span>;</span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(testElem);</span><br><span class="line">  <span class="keyword">if</span> (testElem.offsetHeight == <span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">'html'</span>).classList.add(<span class="string">'hairlines'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">document</span>.body.removeChild(testElem);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 脚本应该放在 &lt;body&gt; 内， 如果在 &lt;head&gt; 里面运行，需要包装 $(document).ready(function() &#123;   &#125;)</span></span><br></pre></td></tr></table></figure>
+<p>不过这个兼容不了安卓设备，而且ios 8以下不支持，所以还是得安卓支持才能用。。<br>2、使用图片完成border<br>一个6*6的图片<br><img src="http://o7bfyflfi.bkt.clouddn.com/image/blogs/border-bg.png" alt="切图"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border</span>&#123;     <span class="attribute">border-width</span>: <span class="number">1px</span>;     <span class="attribute">border-image</span>: <span class="built_in">url</span>(border.gif) <span class="number">2</span> repeat; &#125;</span><br></pre></td></tr></table></figure>
+<p>缺点是每次改变颜色都要重新切图。<br>3、用多背景渐变实现的，设置 1px 的渐变背景，50% 有颜色，50% 透明<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.border</span> &#123;     <span class="attribute">background</span>:     <span class="built_in">linear-gradient</span>(180deg, black, black 50%, transparent 50%) top    left  / <span class="number">100%</span> <span class="number">1px</span> no-repeat,     <span class="built_in">linear-gradient</span>(90deg,  black, black 50%, transparent 50%) top    right / <span class="number">1px</span> <span class="number">100%</span> no-repeat,     <span class="built_in">linear-gradient</span>(0,      black, black 50%, transparent 50%) bottom right / <span class="number">100%</span> <span class="number">1px</span> no-repeat,     <span class="built_in">linear-gradient</span>(-90deg, black, black 50%, transparent 50%) bottom left  / <span class="number">1px</span> <span class="number">100%</span> no-repeat; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>圆角没法实现，而且代码比较长<br>4、通过 viewport + rem 实现的<br>当 devicePixelRatio = 2 时，输出 viewport<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>当devicePixelRatio = 3时，输出 viewport<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=0.3333333333333333, maximum-scale=0.3333333333333333, minimum-scale=0.3333333333333333, user-scalable=no"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>同时通过设置对应 viewport 的 rem 基准值，这种方式就可以像以前一样写 1px 了。<br>5、伪类 + transform<br>原理是把原先元素的 border 去掉，然后利用:before或者:after重做 border ，并 transform 的 scale 缩小一半，原先的元素相对定位，新做的 border 绝对定位</p>
 <ul>
-<li>切一个1px的线，一半是边框颜色，另外一半是背景颜色</li>
+<li><p>单条 border</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hairlines</span> <span class="selector-tag">li</span>&#123;     <span class="attribute">position</span>: relative;     <span class="attribute">border</span>:none; &#125;</span><br><span class="line"><span class="selector-class">.hairlines</span> <span class="selector-tag">li</span><span class="selector-pseudo">:after</span>&#123;     <span class="attribute">content</span>: <span class="string">''</span>;     <span class="attribute">position</span>: absolute;     <span class="attribute">left</span>: <span class="number">0</span>;     <span class="attribute">background</span>: <span class="number">#000</span>;     <span class="attribute">width</span>: <span class="number">100%</span>;     <span class="attribute">height</span>: <span class="number">1px</span>;     <span class="attribute">-webkit-transform</span>: <span class="built_in">scaleY</span>(0.5);             <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(0.5);     <span class="attribute">-webkit-transform-origin</span>: <span class="number">0</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>四条 border</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.hairlines</span> <span class="selector-tag">li</span>&#123;     <span class="attribute">position</span>: relative;     <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;     <span class="attribute">border</span>:none; &#125;</span><br><span class="line"><span class="selector-class">.hairlines</span> <span class="selector-tag">li</span><span class="selector-pseudo">:after</span>&#123;     <span class="attribute">content</span>: <span class="string">''</span>;     <span class="attribute">position</span>: absolute;     <span class="attribute">top</span>: <span class="number">0</span>;     <span class="attribute">left</span>: <span class="number">0</span>;     <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;     <span class="attribute">-webkit-box-sizing</span>: border-box;     <span class="attribute">box-sizing</span>: border-box;     <span class="attribute">width</span>: <span class="number">200%</span>;     <span class="attribute">height</span>: <span class="number">200%</span>;     <span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(0.5);     <span class="attribute">transform</span>: <span class="built_in">scale</span>(0.5);     <span class="attribute">-webkit-transform-origin</span>: left top;     <span class="attribute">transform-origin</span>: left top; &#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="5、点击延迟300ms"><a href="#5、点击延迟300ms" class="headerlink" title="5、点击延迟300ms"></a>5、点击延迟300ms</h3><h3 id="6、事件穿透-pointer-event"><a href="#6、事件穿透-pointer-event" class="headerlink" title="6、事件穿透 pointer-event"></a>6、事件穿透 pointer-event</h3><h3 id="7、viewport作用。"><a href="#7、viewport作用。" class="headerlink" title="7、viewport作用。"></a>7、viewport作用。</h3><h3 id="8、闭包的用途和原理。"><a href="#8、闭包的用途和原理。" class="headerlink" title="8、闭包的用途和原理。"></a>8、闭包的用途和原理。</h3><p>闭包的场景：</p>
+<p>样式使用的时候，也要结合 JS 代码，判断是否 Retina 屏<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="built_in">window</span>.devicePixelRatio &amp;&amp; devicePixelRatio &gt;= <span class="number">2</span>)&#123;</span><br><span class="line">    <span class="built_in">document</span>.querySelector(<span class="string">'ul'</span>).className = <span class="string">'hairlines'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以支持圆角，唯一的一点缺陷是td用不了。</p>
+<h3 id="5、点击延迟300ms"><a href="#5、点击延迟300ms" class="headerlink" title="5、点击延迟300ms"></a>5、点击延迟300ms</h3><h4 id="问题由来"><a href="#问题由来" class="headerlink" title="问题由来"></a>问题由来</h4><p>这要追溯至 2007 年初。苹果公司在发布首款 iPhone 前夕，遇到一个问题：当时的网站都是为大屏幕设备所设计的。于是苹果的工程师们做了一些约定，应对 iPhone 这种小屏幕浏览桌面端站点的问题。 </p>
+<p>这当中最出名的，当属双击缩放(double tap to zoom)，这也是会有上述 300 毫秒延迟的主要原因。双击缩放，顾名思义，即用手指在屏幕上快速点击两次，iOS 自带的 Safari 浏览器会将网页缩放至原始比例。</p>
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>1、<a href="https://github.com/ftlabs/fastclick" target="_blank" rel="external">FastClick</a>,监测touchend事件，通过Dom自定义事件触发一个模拟click事件，并且把浏览器300MS之后真正触发的click事件关掉；<br>2、touch-action 这个现在只在chrome和IE 10+支持，就是说在css设置touch-action: none后，那么对应的元素在被点击之后，浏览器不会启动缩放操作；</p>
+<h3 id="6、事件穿透-pointer-event"><a href="#6、事件穿透-pointer-event" class="headerlink" title="6、事件穿透 pointer-event"></a>6、事件穿透 pointer-event</h3><p>CSS pointer-events<br>pointer-events：auto | none | visiblepainted | visiblefill | visiblestroke | visible | painted | fill | stroke | all<br>当设置为none的时候，元素永远不会成为鼠标事件的target，当然如果需要禁止点透的节点是父子关系，那么这个方法是行不通的。</p>
+<p>1、同样 <a href="https://github.com/ftlabs/fastclick" target="_blank" rel="external">FastClick</a>可以解决；<br>2、用touchend代替tap事件并阻止掉touchend的默认行为preventDefault()</p>
+<h3 id="7、viewport作用。"><a href="#7、viewport作用。" class="headerlink" title="7、viewport作用。"></a>7、viewport作用。</h3><p><a href="http://www.wufangbo.com/mobile-browser-viewport/" target="_blank" rel="external">手机浏览器的viewport（视觉窗口）</a></p>
+<h3 id="8、闭包的用途和原理。"><a href="#8、闭包的用途和原理。" class="headerlink" title="8、闭包的用途和原理。"></a>8、闭包的用途和原理。</h3><p>闭包的场景：</p>
 <ul>
 <li>函数内部可以访问到外部的变量或者对象</li>
 <li>使用闭包可以在JavaScript中模拟块级作用域</li>
@@ -694,115 +715,6 @@ package.json：应用程序数据，指明hexo的版本等信息，类似于一�
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/05/16/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-16T22:53:06+08:00" content="2016-05-16">
-              2016-05-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/05/16/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/16/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -844,7 +756,7 @@ package.json：应用程序数据，指明hexo的版本等信息，类似于一�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
