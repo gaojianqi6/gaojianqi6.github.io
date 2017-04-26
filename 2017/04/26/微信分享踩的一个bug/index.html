@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="javascript,wechat," />
 
 
 
@@ -84,15 +84,25 @@
 
 
 
-<meta name="description" content="博客, jerome, github, react.js">
-<meta property="og:type" content="website">
-<meta property="og:title" content="浮生如斯的博客">
-<meta property="og:url" content="http://gudianjita.cn/tags/hexo-next/index.html">
+<meta name="description" content="微信分享在SPA网页中配置的分享会失效之前主要是在iPhone上面测试H5网页分享出去的效果，所以一直也没有发现单页应用在android上pushState一次之后就分享信息就会失效。
+JSSDK不知道什么时候更新的官方信息：
+
+所有需要使用JS-SDK的页面必须先注入配置信息，否则将无法调用（同一个url仅需调用一次，对于变化url的SPA的web app可在每次url变化时进行调用,目前And">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信分享踩的一个bug">
+<meta property="og:url" content="http://gudianjita.cn/2017/04/26/微信分享踩的一个bug/index.html">
 <meta property="og:site_name" content="浮生如斯的博客">
-<meta property="og:description" content="博客, jerome, github, react.js">
+<meta property="og:description" content="微信分享在SPA网页中配置的分享会失效之前主要是在iPhone上面测试H5网页分享出去的效果，所以一直也没有发现单页应用在android上pushState一次之后就分享信息就会失效。
+JSSDK不知道什么时候更新的官方信息：
+
+所有需要使用JS-SDK的页面必须先注入配置信息，否则将无法调用（同一个url仅需调用一次，对于变化url的SPA的web app可在每次url变化时进行调用,目前And">
+<meta property="og:updated_time" content="2017-04-26T11:42:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="浮生如斯的博客">
-<meta name="twitter:description" content="博客, jerome, github, react.js">
+<meta name="twitter:title" content="微信分享踩的一个bug">
+<meta name="twitter:description" content="微信分享在SPA网页中配置的分享会失效之前主要是在iPhone上面测试H5网页分享出去的效果，所以一直也没有发现单页应用在android上pushState一次之后就分享信息就会失效。
+JSSDK不知道什么时候更新的官方信息：
+
+所有需要使用JS-SDK的页面必须先注入配置信息，否则将无法调用（同一个url仅需调用一次，对于变化url的SPA的web app可在每次url变化时进行调用,目前And">
 
 
 
@@ -110,7 +120,7 @@
   };
 </script>
 
-  <title> 标签: hexo-next | 浮生如斯的博客 </title>
+  <title> 微信分享踩的一个bug | 浮生如斯的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -141,7 +151,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,46 +249,136 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        hexo-next
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                微信分享踩的一个bug
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-26T19:27:13+08:00" content="2017-04-26">
+              2017-04-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/26/微信分享踩的一个bug/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/26/微信分享踩的一个bug/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="微信分享在SPA网页中配置的分享会失效"><a href="#微信分享在SPA网页中配置的分享会失效" class="headerlink" title="微信分享在SPA网页中配置的分享会失效"></a>微信分享在SPA网页中配置的分享会失效</h2><p>之前主要是在iPhone上面测试H5网页分享出去的效果，所以一直也没有发现单页应用在android上pushState一次之后就分享信息就会失效。</p>
+<p>JSSDK不知道什么时候更新的官方信息：</p>
+<blockquote>
+<p>所有需要使用JS-SDK的页面必须先注入配置信息，否则将无法调用（同一个url仅需调用一次，对于变化url的SPA的web app可在每次url变化时进行调用,目前Android微信客户端不支持pushState的H5新特性，所以使用pushState来实现web app的页面会导致签名失败，此问题会在Android6.2中修复）。</p>
+</blockquote>
+<p>所以如果你用的vue router或者react router的话，在pushState页面路径变化之后，可以在判断当前页面是微信浏览器并且是android手机的情况下，重新发起获取微信配置信息，然后调用wx.config()，这样就没问题了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// react router历史记录</span></span><br><span class="line"><span class="keyword">const</span> history = syncHistoryWithStore(browserHistory, store);</span><br><span class="line"></span><br><span class="line">history.listen((location) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 判断android下面 每次URL变化时重新获取wxJSConfig信息</span></span><br><span class="line">    <span class="keyword">if</span> (isWeixin() &amp;&amp; isAndroid())</span><br><span class="line">      <span class="built_in">window</span>.getWXJSConfigInfo();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/05/17/github-pages从构建到评论-hexo/" itemprop="url">
-              
-                <span itemprop="name">Github Pages从构建到评论(HEXO)</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-05-17T15:35:58+08:00"
-              content="2016-05-17" >
-          05-17
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag">#javascript</a>
+          
+            <a href="/tags/wechat/" rel="tag">#wechat</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/18/react的滑动效果，react-swipe和react-motion/" rel="next" title="react的滑动效果，react-swipe和react-motion">
+                <i class="fa fa-chevron-left"></i> react的滑动效果，react-swipe和react-motion
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -286,6 +386,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/26/微信分享踩的一个bug/"
+           data-title="微信分享踩的一个bug" data-url="http://gudianjita.cn/2017/04/26/微信分享踩的一个bug/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -305,8 +413,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars3.githubusercontent.com/u/1460571?v=3&s=460"
@@ -356,6 +473,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#微信分享在SPA网页中配置的分享会失效"><span class="nav-number">1.</span> <span class="nav-text">微信分享在SPA网页中配置的分享会失效</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -459,6 +587,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

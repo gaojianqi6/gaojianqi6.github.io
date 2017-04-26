@@ -263,6 +263,113 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/26/微信分享踩的一个bug/" itemprop="url">
+                  微信分享踩的一个bug
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-26T19:27:13+08:00" content="2017-04-26">
+              2017-04-26
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/04/26/微信分享踩的一个bug/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/26/微信分享踩的一个bug/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="微信分享在SPA网页中配置的分享会失效"><a href="#微信分享在SPA网页中配置的分享会失效" class="headerlink" title="微信分享在SPA网页中配置的分享会失效"></a>微信分享在SPA网页中配置的分享会失效</h2><p>之前主要是在iPhone上面测试H5网页分享出去的效果，所以一直也没有发现单页应用在android上pushState一次之后就分享信息就会失效。</p>
+<p>JSSDK不知道什么时候更新的官方信息：</p>
+<blockquote>
+<p>所有需要使用JS-SDK的页面必须先注入配置信息，否则将无法调用（同一个url仅需调用一次，对于变化url的SPA的web app可在每次url变化时进行调用,目前Android微信客户端不支持pushState的H5新特性，所以使用pushState来实现web app的页面会导致签名失败，此问题会在Android6.2中修复）。</p>
+</blockquote>
+<p>所以如果你用的vue router或者react router的话，在pushState页面路径变化之后，可以在判断当前页面是微信浏览器并且是android手机的情况下，重新发起获取微信配置信息，然后调用wx.config()，这样就没问题了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// react router历史记录</span></span><br><span class="line"><span class="keyword">const</span> history = syncHistoryWithStore(browserHistory, store);</span><br><span class="line"></span><br><span class="line">history.listen((location) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 判断android下面 每次URL变化时重新获取wxJSConfig信息</span></span><br><span class="line">    <span class="keyword">if</span> (isWeixin() &amp;&amp; isAndroid())</span><br><span class="line">      <span class="built_in">window</span>.getWXJSConfigInfo();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/18/react的滑动效果，react-swipe和react-motion/" itemprop="url">
                   react的滑动效果，react-swipe和react-motion
                 </a>
@@ -337,11 +444,11 @@
 <h3 id="react-swipe"><a href="#react-swipe" class="headerlink" title="react-swipe"></a>react-swipe</h3><p>安装需要同时安装swipe-js-jso包：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install react swipe-js-iso react-swipe</span><br></pre></td></tr></table></figure>
 <p>常用属性介绍：<br>continuous: 循环到最后一个时继续滑动是否从头开始，默认为true<br>transitionEnd：滑动动画结束时调用，callback(index, item), index为当前滑动的下标，item为当前被滑动的元素<br>因为swipe没有提供轮滑图中显示的提示圆点之类，自己可以根据下标在上面加上提示用户的圆点等。</p>
-<p>示例代码:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import ReactSwipe from 'react-swipe';</span></span><br><span class="line">&lt;div className=<span class="string">"welfare-focus-wrap"</span>&gt;</span><br><span class="line">  &lt;ReactSwipe className="carousel" swipeOptions=&#123;&#123;continuous: true, transitionEnd: (index) =&gt; &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      focusIndex: index,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;&#125;&#125;&gt;</span><br><span class="line">    &#123;</span><br><span class="line">      this.state.activityDetails.map((item, index) =&gt;</span><br><span class="line">        &lt;div className=&#123;`welfareFocusWrap focusIndex$&#123;index&#125;`&#125; key=&#123;`welfareFocus$&#123;index&#125;`&#125; onClick=&#123;() =&gt; &#123; location.href = item.activityUrl;&#125;&#125;&gt;</span><br><span class="line">          &lt;img src=&#123;item.pictureUrl&#125; className="welfareFocusImg" /&gt;</span><br><span class="line">        &lt;/div&gt;)</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/ReactSwipe&gt;</span><br><span class="line">  &lt;div className="welfare-focus-circle-wrap"&gt;</span><br><span class="line">    &#123;</span><br><span class="line">      this.state.activityDetails.map((item, index) =&gt;</span><br><span class="line">        &lt;div</span><br><span class="line">          className=&#123;`welfareFocusCircle $&#123;this.state.focusIndex == index ? 'checked' : ''&#125;`&#125;</span><br><span class="line">          key=&#123;`welfareFocusCircle$&#123;index&#125;`&#125; /&gt;)</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>示例代码:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// import ReactSwipe from 'react-swipe';</span></span><br><span class="line">&lt;div className=<span class="string">"welfare-focus-wrap"</span>&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">ReactSwipe</span> <span class="attr">className</span>=<span class="string">"carousel"</span> <span class="attr">swipeOptions</span>=<span class="string">&#123;&#123;continuous:</span> <span class="attr">true</span>, <span class="attr">transitionEnd:</span> (<span class="attr">index</span>) =&gt;</span> &#123;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      focusIndex: index,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;&#125;&#125;&gt;</span><br><span class="line">    &#123;</span><br><span class="line">      this.state.activityDetails.map((item, index) =&gt;</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&#123;</span>`<span class="attr">welfareFocusWrap</span> <span class="attr">focusIndex</span>$&#123;<span class="attr">index</span>&#125;`&#125; <span class="attr">key</span>=<span class="string">&#123;</span>`<span class="attr">welfareFocus</span>$&#123;<span class="attr">index</span>&#125;`&#125; <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123; location.href = item.activityUrl;&#125;&#125;&gt;</span><br><span class="line">          <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;item.pictureUrl&#125;</span> <span class="attr">className</span>=<span class="string">"welfareFocusImg"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">ReactSwipe</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"welfare-focus-circle-wrap"</span>&gt;</span></span><br><span class="line">    &#123;</span><br><span class="line">      this.state.activityDetails.map((item, index) =&gt;</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span></span><br><span class="line">          <span class="attr">className</span>=<span class="string">&#123;</span>`<span class="attr">welfareFocusCircle</span> $&#123;<span class="attr">this.state.focusIndex</span> == <span class="string">index</span> ? '<span class="attr">checked</span>' <span class="attr">:</span> ''&#125;`&#125;</span><br><span class="line">          <span class="attr">key</span>=<span class="string">&#123;</span>`<span class="attr">welfareFocusCircle</span>$&#123;<span class="attr">index</span>&#125;`&#125; /&gt;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
 <p>github地址：<a href="https://github.com/voronianski/react-swipe" target="_blank" rel="external">react-swipe</a> 、<a href="https://github.com/voronianski/swipe-js-iso" target="_blank" rel="external">swipe-js-iso</a></p>
-<h3 id="react-motion"><a href="#react-motion" class="headerlink" title="react-motion"></a>react-motion</h3><p>在没实际写上代码测试时候，对motion的概念感觉似懂非懂，翻了很多介绍react-motion的资料，在写下代码测试之后，理解react-motion是做了对<br>动画过程中从A点到B点平滑的变化数值，在数值变化过程中，react-motion会不断的调用回调方法，把变动的数值传入到需要渲染的dom中，<br>这个比自己实现的定时滑动会更加的平滑自然。</p>
+<h3 id="react-motion"><a href="#react-motion" class="headerlink" title="react-motion"></a>react-motion</h3><p>在没实际写代码测试时候，对motion的概念感觉似懂非懂，翻了很多介绍react-motion的资料，在写了代码测试之后，理解react-motion是做了对<br>动画过程中从A点到B点平滑的变化数值，在数值变化过程中，react-motion会不断的调用回调方法，把变动的数值传入到需要渲染的dom中，<br>这个比自己实现的定时滑动会更加的平滑自然。</p>
 <p>因为要兼容手机不同分辨率滑动的单位距离不一致，所以在Motion的外层div的onLoad事件中，每次通过元素的clientWidth来获得滑动的距离，在react中不得已使用了<br>dom，谁有更好的办法欢迎告诉我。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> stepbarLeft = <span class="keyword">this</span>.state.stepbarLeft;</span><br><span class="line"><span class="keyword">const</span> oldStepbarLeft = curQuestionIndex &gt; <span class="number">0</span> ? (curQuestionIndex <span class="number">-1</span>)*stepbarLeft : <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> newStepbarLeft = stepbarLeft*curQuestionIndex;</span><br><span class="line"><span class="keyword">const</span> currentNode = (</span><br><span class="line">  &lt;Motion defaultStyle=&#123;&#123;left: oldStepbarLeft &#125;&#125; style=&#123;&#123;left: spring(newStepbarLeft)&#125;&#125;&gt;</span><br><span class="line">    &#123;</span><br><span class="line">      // 在动画执行过程中，react-motion会不断的调用此方法，返回动画进行过程中相应的数值，可以自己cosole输出interpolatingStyle看</span><br><span class="line">      interpolatingStyle =&gt; &#123;</span><br><span class="line">        return (</span><br><span class="line">          &lt;div className="questionPageCurNode" style=&#123;interpolatingStyle&#125;&gt;</span><br><span class="line">            &lt;img src=&#123;questionPageCurrentImage&#125; className="questionPageCurDot" /&gt;</span><br><span class="line">            &lt;span className="questionPageCurSequence"&gt;&#123; curQuestionIndex + 1 &#125;&lt;/span&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">        );</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;/Motion&gt;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">return (</span><br><span class="line">  &lt;div className="questionPageHeader" onLoad=&#123;() =&gt; &#123;</span><br><span class="line">    const left = document.querySelectorAll('.questionPageNode')[3].clientWidth + document.querySelectorAll('.questionPageLine')[3].clientWidth;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      stepbarLeft: left,</span><br><span class="line">      conentLeft: document.querySelector('.questionPageContentsArea').clientWidth,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;&#125;&gt;</span><br><span class="line">    &lt;div className="questionPageStepbar"&gt;</span><br><span class="line">      &#123;stepbar&#125;</span><br><span class="line">      &#123;currentNode&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> stepbarLeft = <span class="keyword">this</span>.state.stepbarLeft;</span><br><span class="line"><span class="keyword">const</span> oldStepbarLeft = curQuestionIndex &gt; <span class="number">0</span> ? (curQuestionIndex <span class="number">-1</span>)*stepbarLeft : <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> newStepbarLeft = stepbarLeft*curQuestionIndex;</span><br><span class="line"><span class="keyword">const</span> currentNode = (</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">Motion</span> <span class="attr">defaultStyle</span>=<span class="string">&#123;&#123;left:</span> <span class="attr">oldStepbarLeft</span> &#125;&#125; <span class="attr">style</span>=<span class="string">&#123;&#123;left:</span> <span class="attr">spring</span>(<span class="attr">newStepbarLeft</span>)&#125;&#125;&gt;</span></span><br><span class="line">    &#123;</span><br><span class="line">      // 在动画执行过程中，react-motion会不断的调用此方法，返回动画进行过程中相应的数值，可以自己cosole输出interpolatingStyle看</span><br><span class="line">      interpolatingStyle =&gt; &#123;</span><br><span class="line">        return (</span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"questionPageCurNode"</span> <span class="attr">style</span>=<span class="string">&#123;interpolatingStyle&#125;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;questionPageCurrentImage&#125;</span> <span class="attr">className</span>=<span class="string">"questionPageCurDot"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">className</span>=<span class="string">"questionPageCurSequence"</span>&gt;</span>&#123; curQuestionIndex + 1 &#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        );</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">Motion</span>&gt;</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">return (</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"questionPageHeader"</span> <span class="attr">onLoad</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span><br><span class="line">    const left = document.querySelectorAll('.questionPageNode')[3].clientWidth + document.querySelectorAll('.questionPageLine')[3].clientWidth;</span><br><span class="line">    this.setState(&#123;</span><br><span class="line">      stepbarLeft: left,</span><br><span class="line">      conentLeft: document.querySelector('.questionPageContentsArea').clientWidth,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;&#125;&gt;</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">"questionPageStepbar"</span>&gt;</span></span><br><span class="line">      &#123;stepbar&#125;</span><br><span class="line">      &#123;currentNode&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">);</span></span><br></pre></td></tr></table></figure>
 <p>github地址：<a href="https://github.com/chenglou/react-motion" target="_blank" rel="external">react-motion</a><br>Motion参考资料：<a href="https://segmentfault.com/a/1190000004224778" target="_blank" rel="external">React Motion 缓动函数剖析</a></p>
 
           
@@ -1160,7 +1267,7 @@ package.json：应用程序数据，指明hexo的版本等信息，类似于一�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1177,7 +1284,7 @@ package.json：应用程序数据，指明hexo的版本等信息，类似于一�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
