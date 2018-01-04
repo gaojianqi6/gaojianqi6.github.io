@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="无题," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,16 +84,22 @@
 
 
 
-<meta name="description" content="从地铁回去的时候经常怔怔的发呆，脑海里的思绪自己不去拨动，让他自己进行推演，会发现有时候会莫名的心慌，觉得自己这么大了，却好像一事无成，有时候却又在和周围过的不如自己好的对比，就莫名的信心膨胀，不过大部分时候，总觉得自己好像并没有什么骄傲的，拿出去可以夸奖的事情又有什么呢？有时候想了好久，自己将来到底会做什么，爱好拿起来又放下，到最后连拾起来的勇气都没有，总想到《练琴》里说的，当他再一起拿起了吉他">
+<meta name="description" content="自己的电脑上有用到几个不同的git，之前只是clone github上http的地址拿下来看，后来个人项目也需要开发，就需要好几个ssh key，写下这个记录一下过程，省的每次忘记流程还重新记录。
+生成SSH KEY
+生成SSH KEY时，首先进入~/.ssh/目录下，使用ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot;生成ssh ke">
 <meta property="og:type" content="article">
-<meta property="og:title" content="这只能算个日记吧。">
-<meta property="og:url" content="http://gudianjita.cn/2016/05/18/这只能算个日记吧/index.html">
+<meta property="og:title" content="浮生如斯的博客">
+<meta property="og:url" content="http://gudianjita.cn/2018/01/04/Mac下git多个SSH KEY配置/index.html">
 <meta property="og:site_name" content="浮生如斯的博客">
-<meta property="og:description" content="从地铁回去的时候经常怔怔的发呆，脑海里的思绪自己不去拨动，让他自己进行推演，会发现有时候会莫名的心慌，觉得自己这么大了，却好像一事无成，有时候却又在和周围过的不如自己好的对比，就莫名的信心膨胀，不过大部分时候，总觉得自己好像并没有什么骄傲的，拿出去可以夸奖的事情又有什么呢？有时候想了好久，自己将来到底会做什么，爱好拿起来又放下，到最后连拾起来的勇气都没有，总想到《练琴》里说的，当他再一起拿起了吉他">
-<meta property="og:updated_time" content="2016-05-18T14:20:46.000Z">
+<meta property="og:description" content="自己的电脑上有用到几个不同的git，之前只是clone github上http的地址拿下来看，后来个人项目也需要开发，就需要好几个ssh key，写下这个记录一下过程，省的每次忘记流程还重新记录。
+生成SSH KEY
+生成SSH KEY时，首先进入~/.ssh/目录下，使用ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot;生成ssh ke">
+<meta property="og:updated_time" content="2018-01-04T07:54:57.220Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这只能算个日记吧。">
-<meta name="twitter:description" content="从地铁回去的时候经常怔怔的发呆，脑海里的思绪自己不去拨动，让他自己进行推演，会发现有时候会莫名的心慌，觉得自己这么大了，却好像一事无成，有时候却又在和周围过的不如自己好的对比，就莫名的信心膨胀，不过大部分时候，总觉得自己好像并没有什么骄傲的，拿出去可以夸奖的事情又有什么呢？有时候想了好久，自己将来到底会做什么，爱好拿起来又放下，到最后连拾起来的勇气都没有，总想到《练琴》里说的，当他再一起拿起了吉他">
+<meta name="twitter:title" content="浮生如斯的博客">
+<meta name="twitter:description" content="自己的电脑上有用到几个不同的git，之前只是clone github上http的地址拿下来看，后来个人项目也需要开发，就需要好几个ssh key，写下这个记录一下过程，省的每次忘记流程还重新记录。
+生成SSH KEY
+生成SSH KEY时，首先进入~/.ssh/目录下，使用ssh-keygen -t rsa -C &amp;quot;your_email@example.com&amp;quot;生成ssh ke">
 
 
 
@@ -111,7 +117,7 @@
   };
 </script>
 
-  <title> 这只能算个日记吧。 | 浮生如斯的博客 </title>
+  <title>  | 浮生如斯的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -261,7 +267,7 @@
             
             
               
-                这只能算个日记吧。
+                
               
             
           </h1>
@@ -273,38 +279,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-18T21:52:12+08:00" content="2016-05-18">
-              2016-05-18
+            <time itemprop="dateCreated" datetime="2018-01-04T15:18:48+08:00" content="2018-01-04">
+              2018-01-04
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/无题/" itemprop="url" rel="index">
-                    <span itemprop="name">无题</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/18/这只能算个日记吧/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/18/这只能算个日记吧/" itemprop="commentsCount"></span>
+                <a href="/2018/01/04/Mac下git多个SSH KEY配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/04/Mac下git多个SSH KEY配置/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -327,9 +314,25 @@
       
 
       
-        <p>从地铁回去的时候经常怔怔的发呆，脑海里的思绪自己不去拨动，让他自己进行推演，会发现有时候会莫名的心慌，觉得自己这么大了，却好像一事无成，有时候却又在和周围过的不如自己好的对比，就莫名的信心膨胀，不过大部分时候，总觉得自己好像并没有什么骄傲的，拿出去可以夸奖的事情又有什么呢？有时候想了好久，自己将来到底会做什么，爱好拿起来又放下，到最后连拾起来的勇气都没有，总想到《练琴》里说的，当他再一起拿起了吉他，手上却久久的不敢拨动，好像怕惊醒了什么。</p>
-<p>我想有好多的钱可以花，可以让我挥霍，让我胡吃海塞，天地任遨游，可是却觉得只是个梦，所以首先的一步还是要先有财物自由的钱吧，我觉得赚钱的话还是得靠产品，知乎前段时间出了一个产品，可以写一段话，然后把其中关键的字句给屏蔽，用户只能付费观看，如果看完觉得值的话会直接打给作者，如果看完觉得不行就捐给程序员买袜子，这是一个很好的想法，知乎变现的尝试之作，产品还是靠好idea；在豆瓣看电影的时候会有好多评分，会想怎么来根据评分选择电影呢，豆瓣没有这个功能还是把这个功能隐藏的很深，难道是用户没有这个需求来选择电影？</p>
-<p>我的爱好有好多，长的也只是坚持一到两年就慢慢的开始淡了，因为我觉得最开始支撑起来的是好奇和事物的新奇度，坚持久了，发展深了，就会出现练习的枯燥，而这个时候恰恰是事物的瓶颈期，突破了，就是一个质的变化，而好多时候到这却选择了暂时性的放弃，真是满盘皆输。<br>房间那么小，却可以放的下世界地图；经历那么有限，心却那么大。</p>
+        <p>自己的电脑上有用到几个不同的git，之前只是clone github上http的地址拿下来看，后来个人项目也需要开发，就需要好几个ssh key，写下这个记录一下过程，省的每次忘记流程还重新记录。</p>
+<h6 id="生成SSH-KEY"><a href="#生成SSH-KEY" class="headerlink" title="生成SSH KEY"></a>生成SSH KEY</h6><ul>
+<li><p>生成SSH KEY时，首先进入<code>~/.ssh/</code>目录下，使用<code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</code>生成ssh key信息，第一次提示”Enter file in which to save the key (/Users/JeromeGao/.ssh/id_rsa)”时，可以使用默认文件名字，但是之后生成ssh key记得填写相应的文件名，，以便区分，”Enter passphrase (empty for no passphrase)”是私钥密码，可以直接回车也可以输入密码，如果输入密码请记住私钥的密码， 下面导入私钥的时候要用到。<br>命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh/</span><br><span class="line">➜  .ssh ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/Users/JeromeGao/.ssh/id_rsa): id_rsa_gittest</span><br><span class="line">Enter passphrase (empty for no passphrase):</span><br><span class="line">Enter same passphrase again:</span><br><span class="line">Your identification has been saved in id_rsa_gittest.</span><br><span class="line">Your public key has been saved in id_rsa_gittest.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">SHA256:5/5+BIyhVKH3MRoGIs5vn36aKmuppQqgIBJ69KTHND8 gaojianqi6@126.com</span><br><span class="line">The key&apos;s randomart image is:</span><br><span class="line">+---[RSA 2048]----+</span><br><span class="line">|    . . ..o.     |</span><br><span class="line">|   o . ..o.      |</span><br><span class="line">|. . *  ...++o    |</span><br><span class="line">|.o * +  .o.+oo   |</span><br><span class="line">|* o + E S o ..   |</span><br><span class="line">|*. . . o +    .  |</span><br><span class="line">|o   ..  o .  .   |</span><br><span class="line">|.  o+  . o.   .  |</span><br><span class="line">|..oo.o..+o.oo.   |</span><br><span class="line">+----[SHA256]-----+</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将SSH 私钥增加到ssh-agent: <code>ssh-add ~/.ssh/xxx_rsa</code>， 这里会提示输入一次私钥的密码;</p>
+</li>
+<li>查看已经添加过的SSH KEY： ssh-add -l；</li>
+<li>在相对应的网站上找到SSH KEYS，然后打开<code>~/.ssh/id_rsa.pub</code>, 复制公钥内容到Key中，然后点击添加就完成了</li>
+</ul>
+<h6 id="一台机器上管理多个GIT帐号的SSH-KEY"><a href="#一台机器上管理多个GIT帐号的SSH-KEY" class="headerlink" title="一台机器上管理多个GIT帐号的SSH KEY"></a>一台机器上管理多个GIT帐号的SSH KEY</h6><ul>
+<li>如果你在一台机器上，使用多个git账号，则重复上面步骤之后，需要编辑文件<code>~/.ssh/config</code>:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#Github  (github 配置)</span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_github</span><br><span class="line"></span><br><span class="line">#company  (公司git 配置)</span><br><span class="line">Host company</span><br><span class="line">    HostName git.company.com</span><br><span class="line">    User git</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line">  #gitlab  (gitlab 配置)</span><br><span class="line">  Host gitlab</span><br><span class="line">      HostName gitlab.com</span><br><span class="line">      User git</span><br><span class="line">      IdentityFile ~/.ssh/id_rsa_gitlab</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>解释一下这个配置文件：</p>
+<p>Host：一个”别名”，可以随意命名, 像git、company这样的命名也可以；<br>HostName：工作的git仓储地址;<br>IdentityFile： 所使用的公钥文件<br>配置完毕，用下面的命令测试一下：</p>
+<h6 id="测试SSH-KEY"><a href="#测试SSH-KEY" class="headerlink" title="测试SSH KEY"></a>测试SSH KEY</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 测试是否联通，出现welcome就表示成功</span><br><span class="line">➜  .ssh ssh -T git@gitlab.com</span><br><span class="line">Welcome to GitLab, !</span><br><span class="line"></span><br><span class="line"># 可以出来调试信息</span><br><span class="line">➜  .ssh ssh -v git@gitlab.com</span><br></pre></td></tr></table></figure>
+<p>记得配置自己的username和email，一般在网站新建项目时会提示你配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name your_name</span><br><span class="line">git config user.email your_email</span><br></pre></td></tr></table></figure></p>
+<h6 id="ssh命令收集"><a href="#ssh命令收集" class="headerlink" title="ssh命令收集"></a>ssh命令收集</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 将SSH 私钥增加到ssh-agent</span><br><span class="line">ssh-add ~/.ssh/xxx_rsa</span><br><span class="line"># 查看已经添加过的SSH KEY</span><br><span class="line">ssh-add -l</span><br><span class="line"># 运行ssh-agent，它会打印出来它使用的环境和变量</span><br><span class="line">ssh-agent</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -349,28 +352,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/无题/" rel="tag">#无题</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/17/github-pages从构建到评论-hexo/" rel="next" title="Github Pages从构建到评论(HEXO)">
-                <i class="fa fa-chevron-left"></i> Github Pages从构建到评论(HEXO)
+              <a href="/2017/04/26/微信分享踩过的坑/" rel="next" title="微信分享踩过的坑">
+                <i class="fa fa-chevron-left"></i> 微信分享踩过的坑
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/26/JS的一些基础问题/" rel="prev" title="JS的一些基础问题">
-                JS的一些基础问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -396,8 +389,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/18/这只能算个日记吧/"
-           data-title="这只能算个日记吧。" data-url="http://gudianjita.cn/2016/05/18/这只能算个日记吧/">
+      <div class="ds-thread" data-thread-key="2018/01/04/Mac下git多个SSH KEY配置/"
+           data-title="" data-url="http://gudianjita.cn/2018/01/04/Mac下git多个SSH KEY配置/">
       </div>
     
   </div>
@@ -488,7 +481,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#生成SSH-KEY"><span class="nav-number">1.</span> <span class="nav-text">生成SSH KEY</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#一台机器上管理多个GIT帐号的SSH-KEY"><span class="nav-number">2.</span> <span class="nav-text">一台机器上管理多个GIT帐号的SSH KEY</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#测试SSH-KEY"><span class="nav-number">3.</span> <span class="nav-text">测试SSH KEY</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#ssh命令收集"><span class="nav-number">4.</span> <span class="nav-text">ssh命令收集</span></a></li></ol></div>
             
           </div>
         </section>
